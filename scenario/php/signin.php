@@ -36,6 +36,9 @@ function is_correct_password($name, $pw) {
 	$db = new PDO("mysql:dbname=Scenario4", "root", "123456fxf");
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$rows = $db->query("SELECT Password FROM userinfo WHERE Username = '$name'");
+	// $sql = "SELECT username FROM userinfo WHERE username='{$name}' AND password='{$password}'";
+
+
 	foreach ($rows as $row) {
 		$correct_password = $row["Password"];
 		if ($pw == $correct_password) {
